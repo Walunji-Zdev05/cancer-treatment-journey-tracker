@@ -1,16 +1,127 @@
-# React + Vite
+# Cancer Treatment Journey Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A digital patient-support system designed to help people living with cancer in Malawi stay on track with their treatment, report side effects, receive practical support, and remain connected with their care team.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Cancer treatment can involve complex schedules, repeated hospital visits, medication, side effects, transportation challenges, and long periods of follow-up.
 
-## React Compiler
+The Cancer Treatment Journey Tracker is being developed to provide a simple digital system that supports patients and caregivers throughout the treatment journey while helping nurses and patient navigators identify patients who may need follow-up.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The system is designed with the realities of Malawi in mind, including limited connectivity, basic mobile phones, low digital literacy, and the need for simple and accessible communication.
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### For Patients and Caregivers
+
+- Treatment schedule tracking
+- Appointment reminders
+- Medication reminders
+- Side-effect reporting
+- Treatment journey tracking
+- Basic nutrition guidance
+- Counselling and support resources
+- SMS and USSD-based interaction
+- Simple and accessible information
+- Consent and privacy controls
+
+### For Nurses and Patient Navigators
+
+- Patient overview
+- View upcoming and missed appointments
+- Identify patients requiring follow-up
+- View recently reported concerning symptoms
+- Record follow-up actions
+- Track treatment progress
+- View basic treatment and follow-up statistics
+
+## Technology Stack
+
+### Frontend
+
+- React
+- JavaScript
+- Vite
+- Tailwind CSS
+
+### Backend
+
+- Node.js
+- Express.js
+- PostgreSQL
+- REST API
+
+### Development
+
+- Git
+- GitHub
+- ESLint
+
+### Planned Communication Services
+
+- SMS
+- USSD
+
+## System Architecture
+
+```text
+Patient / Caregiver
+        |
+        | Web / SMS / USSD
+        v
+React Frontend
+        |
+        | REST API
+        v
+Node.js + Express
+        |
+        v
+PostgreSQL Database
+        |
+        +-------------------+
+        |                   |
+        v                   v
+ Patient Support      Nurse Dashboard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cancer-treatment-journey-tracker/
+│
+├── src/                    # React frontend
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── ...
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── public/
+│
+├── server/                 # Node.js backend
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── routes/
+│   │   └── server.js
+│   │
+│   ├── package.json
+│   └── package-lock.json
+│
+├── docs/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── package.json
+└── ...
