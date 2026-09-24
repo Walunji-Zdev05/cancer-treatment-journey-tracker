@@ -83,45 +83,4 @@ PostgreSQL Database
         v                   v
  Patient Support      Nurse Dashboard
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-cancer-treatment-journey-tracker/
-│
-├── src/                    # React frontend
-│   ├── assets/
-│   ├── components/
-│   ├── pages/
-│   ├── ...
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── public/
-│
-├── server/                 # Node.js backend
-│   ├── src/
-│   │   ├── config/
-│   │   ├── controllers/
-│   │   ├── middleware/
-│   │   ├── routes/
-│   │   └── server.js
-│   │
-│   ├── package.json
-│   └── package-lock.json
-│
-├── docs/
-├── .gitignore
-├── LICENSE
-├── README.md
-├── package.json
 └── ...
