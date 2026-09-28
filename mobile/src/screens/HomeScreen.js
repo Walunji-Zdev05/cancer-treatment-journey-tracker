@@ -4,7 +4,6 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
-  Image,
   StyleSheet,
   SafeAreaView,
 } from 'react-native';
@@ -12,10 +11,6 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 // ---------------------------------------------------------------------------
 // 1. MOCK DATA
-// This is the "static/mock data" we agreed on. Later, this same shape of
-// data would come from your backend (an API call) instead of being typed
-// here by hand. Keeping it separate like this makes that swap easy later:
-// you'd just replace `mockPatientData` with the result of a fetch() call.
 // ---------------------------------------------------------------------------
 const mockPatientData = {
   patientName: 'Alineti B.',
@@ -74,18 +69,7 @@ const moods = [
 
 // ---------------------------------------------------------------------------
 // 2. SMALL REUSABLE PIECES
-// Breaking the screen into small components like this (instead of one giant
-// blob) makes each part easy to read, test, and reuse. This is the single
-// most important habit for a React/React Native codebase.
 // ---------------------------------------------------------------------------
-
-function SectionEyebrow({ chichewa, english }) {
-  return (
-    <View style={styles.eyebrowRow}>
-      <Text style={styles.eyebrowChichewa}>{chichewa}</Text>
-    </View>
-  );
-}
 
 function ComfortCard({ message, onListen, author }) {
   return (
@@ -177,7 +161,9 @@ function VisitCard({ visit, onConfirm, onTransportHelp }) {
 
       <TouchableOpacity style={styles.transportButton} onPress={onTransportHelp}>
         <Ionicons name="bus" size={16} color="#2F6FE0" />
-        <Text style={styles.transportButtonText}>Mufuna Thandizo Loyendera? • Need Help with Transport?</Text>
+        <Text style={styles.transportButtonText}>
+          Mufuna Thandizo Loyendera? • Need Help with Transport?
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -289,23 +275,17 @@ function NurseCard({ nurse, onCall }) {
         <Ionicons name="call" size={16} color="#FFFFFF" />
         <Text style={styles.callButtonText}>Imbani kwa Nasi Grace (Kwaulere)</Text>
       </TouchableOpacity>
-      <Text style={styles.callFootnote}>Free Toll-Free Hotline • Osawononga ndalama iliyonse</Text>
+      <Text style={styles.callFootnote}>
+        Free Toll-Free Hotline • Osawononga ndalama iliyonse
+      </Text>
     </View>
   );
 }
 
-// NOTE: the custom BottomTabBar component that used to live here has been
-// removed. Now that App.js uses React Navigation's createBottomTabNavigator,
-// the tab bar is rendered by the navigator itself, once, around all screens.
-// Keeping a second tab bar here would show two tab bars stacked on screen.
-
 // ---------------------------------------------------------------------------
 // 3. THE MAIN SCREEN
-// This component just arranges the pieces above in order and holds the
-// small bits of "state" (things that can change): which medicines are
-// checked off, which mood is selected, which tab is active.
 // ---------------------------------------------------------------------------
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const [medicines, setMedicines] = useState(mockPatientData.medicines);
   const [selectedMood, setSelectedMood] = useState(null);
 
@@ -368,7 +348,9 @@ export default function HomeScreen() {
               </View>
             </View>
             <View style={styles.takenBadge}>
-              <Text style={styles.takenBadgeText}>{takenCount} of {medicines.length} Taken</Text>
+              <Text style={styles.takenBadgeText}>
+                {takenCount} of {medicines.length} Taken
+              </Text>
             </View>
           </View>
 
@@ -379,7 +361,32 @@ export default function HomeScreen() {
 
         <MoodCheckIn selectedMood={selectedMood} onSelect={setSelectedMood} />
 
-        <NurseCard nurse={mockPatientData.nurse} onCall={() => alert('Calling hotline...')} />
+        {/* ===== BUTTONS TO OPEN OTHER SCREENS ===== */}
+        <TouchableOpacity
+          style={styles.triageButton}
+          onPress={() => navigation.navigate('Triage')}
+        >
+          <Ionicons name="warning-outline" size={18} color="#FFFFFF" />
+          <Text style={styles.triageButtonText}>
+            Emergency Check-In • Kadzifufuze Mwamsanga
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.missedButton}
+          onPress={() => navigation.navigate('MissedAppointment')}
+        >
+          <Ionicons name="calendar-outline" size={18} color="#FFFFFF" />
+          <Text style={styles.missedButtonText}>
+            Missed Appointment • Taphonya Tsiku
+          </Text>
+        </TouchableOpacity>
+        {/* ======================================== */}
+
+        <NurseCard
+          nurse={mockPatientData.nurse}
+          onCall={() => alert('Calling hotline...')}
+        />
       </ScrollView>
     </SafeAreaView>
   );
@@ -387,9 +394,6 @@ export default function HomeScreen() {
 
 // ---------------------------------------------------------------------------
 // 4. STYLES
-// React Native doesn't use CSS files — styles are JS objects, but the
-// property names map closely to CSS (backgroundColor instead of
-// background-color, etc).
 // ---------------------------------------------------------------------------
 const styles = StyleSheet.create({
   safeArea: {
@@ -882,6 +886,38 @@ const styles = StyleSheet.create({
   callFootnote: {
     fontSize: 11,
     color: '#5B6472',
+    textAlign: 'center',
+  },
+
+  // New buttons
+  triageButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 8,
+    backgroundColor: '#C62828',
+    borderRadius: 14,
+    paddingVertical: 14,
+  },
+  triageButtonText: {
+    color: '#FFFFFF',
+    fontWeight: '700',
+    fontSize: 14,
+    textAlign: 'center',
+  },
+  missedButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 8,
+    backgroundColor: '#C2650B',
+    borderRadius: 14,
+    paddingVertical: 14,
+  },
+  missedButtonText: {
+    color: '#FFFFFF',
+    fontWeight: '700',
+    fontSize: 14,
     textAlign: 'center',
   },
 });
