@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import SignInScreen from './src/screens/SignInScreen';
+import SignUpScreen from './src/screens/SignUpScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import CarePathScreen from './src/screens/CarePathScreen';
 import TriageScreen from './src/screens/TriageScreen';
@@ -74,7 +76,12 @@ function Tabs() {
 export default function AppNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator
+        initialRouteName="SignIn"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="SignIn" component={SignInScreen} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="Tabs" component={Tabs} />
         <Stack.Screen name="Triage" component={TriageScreen} />
         <Stack.Screen name="MissedAppointment" component={MissedAppointmentScreen} />
