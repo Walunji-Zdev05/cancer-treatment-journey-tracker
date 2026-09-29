@@ -1,6 +1,4 @@
-// Mock data for the frontend-only submission prototype.
-// No backend yet — this stands in for what would come from the API later.
-// Replace with real API calls once the Node.js/PostgreSQL backend exists.
+
 
 export const patient = {
   name: 'Alineti',

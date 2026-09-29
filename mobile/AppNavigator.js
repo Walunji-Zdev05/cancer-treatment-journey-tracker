@@ -3,13 +3,22 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
+//screens
 import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import CarePathScreen from './src/screens/CarePathScreen';
 import TriageScreen from './src/screens/TriageScreen';
 import MissedAppointmentScreen from './src/screens/MissedAppointmentScreen';
+import MedicinesScreen from './src/screens/MedicinesScreen';   
+import SupportScreen from './src/screens/SupportScreen';
+
+import CommunityScreen from './src/screens/CommunityScreen';
+
+// Inside the Tabs function, add this Tab.Screen (after Meds or wherever you prefer):
+
+
+
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -22,13 +31,6 @@ function MedsScreen() {
   );
 }
 
-function SupportScreen() {
-  return (
-    <View style={styles.placeholder}>
-      <Text style={styles.placeholderText}>Thandizo • Support screen coming soon</Text>
-    </View>
-  );
-}
 
 function Tabs() {
   return (
@@ -59,16 +61,23 @@ function Tabs() {
         component={CarePathScreen}
         options={{ tabBarLabel: 'Ulendo' }}
       />
+      
+<Tab.Screen
+  name="Meds"
+  component={MedicinesScreen}
+  options={{ tabBarLabel: 'Mankhwala' }}
+/>
+<Tab.Screen
+  name="Community"
+  component={CommunityScreen}
+  options={{ tabBarLabel: 'Gulu' }}
+/>
       <Tab.Screen
-        name="Meds"
-        component={MedsScreen}
-        options={{ tabBarLabel: 'Mankhwala' }}
-      />
-      <Tab.Screen
-        name="Support"
-        component={SupportScreen}
-        options={{ tabBarLabel: 'Thandizo' }}
-      />
+  name="Support"
+  component={SupportScreen}
+  options={{ tabBarLabel: 'Thandizo' }}
+/>
+
     </Tab.Navigator>
   );
 }

@@ -361,16 +361,7 @@ export default function HomeScreen({ navigation }) {
 
         <MoodCheckIn selectedMood={selectedMood} onSelect={setSelectedMood} />
 
-        {/* ===== BUTTONS TO OPEN OTHER SCREENS ===== */}
-        <TouchableOpacity
-          style={styles.triageButton}
-          onPress={() => navigation.navigate('Triage')}
-        >
-          <Ionicons name="warning-outline" size={18} color="#FFFFFF" />
-          <Text style={styles.triageButtonText}>
-            Emergency Check-In • Kadzifufuze Mwamsanga
-          </Text>
-        </TouchableOpacity>
+       
 
         <TouchableOpacity
           style={styles.missedButton}
