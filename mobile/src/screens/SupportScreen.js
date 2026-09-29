@@ -10,6 +10,7 @@ import {
   Image,
 } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import AppHeader from '../components/AppHeader';
 
 export default function SupportScreen({ navigation }) {
   const [showTicket, setShowTicket] = useState(false);
@@ -19,46 +20,11 @@ export default function SupportScreen({ navigation }) {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.headerLeft}>
-          <View style={styles.logoCircle}>
-            <Ionicons name="heart" size={20} color="#0058be" />
-          </View>
-          <View>
-            <View style={styles.brandRow}>
-              <Text style={styles.brandName}>Tikondane</Text>
-              <View style={styles.careBadge}>
-                <Text style={styles.careBadgeText}>Care</Text>
-              </View>
-            </View>
-            <View style={styles.patientRow}>
-              <Text style={styles.patientName}>Alineti Banda</Text>
-              <Text style={styles.dot}>•</Text>
-              <Text style={styles.kchNumber}>KCH-4092</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.headerRight}>
-          <TouchableOpacity style={styles.langBtn}>
-            <Text style={styles.langActive}>NY</Text>
-            <Text style={styles.langSlash}>/</Text>
-            <Text style={styles.langInactive}>EN</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.sosBtn}
-            onPress={() => navigation?.navigate?.('Triage')}
-          >
-            <Ionicons name="warning" size={16} color="#FFFFFF" />
-          </TouchableOpacity>
-
-          <View style={styles.avatar}>
-            <Ionicons name="person" size={16} color="#FFFFFF" />
-          </View>
-        </View>
-      </View>
+      <AppHeader
+    navigation={navigation}
+    title="Thandizo & Chithandizo"
+    showSos={true}
+  />
 
       <ScrollView contentContainerStyle={styles.scroll}>
         {/* Page Title */}

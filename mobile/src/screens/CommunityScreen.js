@@ -9,6 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import AppHeader from '../components/AppHeader';
 
 const FILTERS = [
   { id: 'all', label: 'All Stories (Zonse)', icon: 'book' },
@@ -31,37 +32,13 @@ export default function CommunityScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.safeArea}>
       {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.headerLeft}>
-          <View style={styles.logoCircle}>
-            <Ionicons name="heart" size={18} color="#0058be" />
-          </View>
-          <View>
-            <View style={styles.brandRow}>
-              <Text style={styles.brandName}>Tikondane</Text>
-              <Text style={styles.brandCare}>/ Care</Text>
-            </View>
-            <Text style={styles.headerTitle}>Community / Gulu</Text>
-          </View>
-        </View>
-
-        <View style={styles.headerRight}>
-          <TouchableOpacity style={styles.langBtn}>
-            <View style={styles.langActive}>
-              <Text style={styles.langActiveText}>EN</Text>
-            </View>
-            <Text style={styles.langInactive}>NY</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.iconBtn}>
-            <Ionicons name="search" size={20} color="#111c2d" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.iconBtn}>
-            <Ionicons name="notifications-outline" size={20} color="#111c2d" />
-            <View style={styles.notifDot} />
-          </TouchableOpacity>
-        </View>
-      </View>
-
+      <AppHeader
+    navigation={navigation}
+    title="Community / Gulu"
+    //showSearch={true}
+    showNotifications={true}
+    //showSos={true}
+  />
       <ScrollView contentContainerStyle={styles.scroll}>
         {/* Welcome Banner */}
         <View style={styles.banner}>
