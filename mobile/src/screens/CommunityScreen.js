@@ -8,7 +8,7 @@ import {
   SafeAreaView,
   Alert,
 } from 'react-native';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 const FILTERS = [
   { id: 'all', label: 'All Stories (Zonse)', icon: 'book' },
@@ -80,14 +80,14 @@ export default function CommunityScreen({ navigation }) {
           <View style={styles.bannerActions}>
             <TouchableOpacity
               style={styles.primaryBtn}
-              onPress={() => Alert.alert('Share Story', 'Coming soon')}
+              onPress={() => navigation.navigate('ShareStory')}
             >
               <Ionicons name="create-outline" size={18} color="#FFFFFF" />
               <Text style={styles.primaryBtnText}>Gawani Nkhani</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.secondaryBtn}
-              onPress={() => Alert.alert('Ask Community', 'Coming soon')}
+              onPress={() => navigation.navigate('ShareStory')}
             >
               <Ionicons name="help-circle-outline" size={18} color="#0058be" />
               <Text style={styles.secondaryBtnText}>Funsani Gulu</Text>
@@ -143,7 +143,11 @@ export default function CommunityScreen({ navigation }) {
         </ScrollView>
 
         {/* ========== STORY 1: Mercy K. ========== */}
-        <View style={styles.card}>
+        <TouchableOpacity
+          style={styles.card}
+          activeOpacity={0.9}
+          onPress={() => navigation.navigate('StoryDetail')}
+        >
           <View style={styles.authorRow}>
             <View style={styles.avatarMK}>
               <Text style={styles.avatarText}>MK</Text>
@@ -173,7 +177,6 @@ export default function CommunityScreen({ navigation }) {
             returning.”
           </Text>
 
-          {/* Audio */}
           <View style={styles.audioRow}>
             <TouchableOpacity style={styles.playBtn}>
               <Ionicons name="play" size={18} color="#FFFFFF" />
@@ -197,7 +200,6 @@ export default function CommunityScreen({ navigation }) {
             </View>
           </View>
 
-          {/* Tags */}
           <View style={styles.tags}>
             {['#FirstCycleFears', '#SalimaJourney', '#FoodAfterChemo'].map((t) => (
               <View key={t} style={styles.tag}>
@@ -206,7 +208,6 @@ export default function CommunityScreen({ navigation }) {
             ))}
           </View>
 
-          {/* Actions */}
           <View style={styles.actions}>
             <TouchableOpacity
               style={[styles.likeBtn, liked['mercy'] && styles.likeBtnActive]}
@@ -234,10 +235,14 @@ export default function CommunityScreen({ navigation }) {
               <Ionicons name="share-outline" size={18} color="#6B7380" />
             </TouchableOpacity>
           </View>
-        </View>
+        </TouchableOpacity>
 
         {/* ========== STORY 2: Question ========== */}
-        <View style={styles.card}>
+        <TouchableOpacity
+          style={styles.card}
+          activeOpacity={0.9}
+          onPress={() => navigation.navigate('StoryDetail')}
+        >
           <View style={styles.authorRow}>
             <View style={styles.avatarShield}>
               <Ionicons name="shield" size={22} color="#0058be" />
@@ -266,7 +271,6 @@ export default function CommunityScreen({ navigation }) {
             energy up without nausea?”
           </Text>
 
-          {/* Nurse Reply Preview */}
           <View style={styles.replyBox}>
             <View style={styles.replyHeader}>
               <Ionicons name="checkmark-circle" size={14} color="#006c49" />
@@ -291,10 +295,14 @@ export default function CommunityScreen({ navigation }) {
               <Text style={styles.replyBtnText}>Yankhani (8 replies)</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </TouchableOpacity>
 
         {/* ========== STORY 3: Caregiver ========== */}
-        <View style={styles.card}>
+        <TouchableOpacity
+          style={styles.card}
+          activeOpacity={0.9}
+          onPress={() => navigation.navigate('StoryDetail')}
+        >
           <View style={styles.authorRow}>
             <View style={styles.avatarBJ}>
               <Text style={styles.avatarTextGreen}>BJ</Text>
@@ -347,10 +355,14 @@ export default function CommunityScreen({ navigation }) {
               <Text style={styles.commentText}>9 comments</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </TouchableOpacity>
 
         {/* ========== STORY 4: Audio Spotlight ========== */}
-        <View style={[styles.card, styles.spotlightCard]}>
+        <TouchableOpacity
+          style={[styles.card, styles.spotlightCard]}
+          activeOpacity={0.9}
+          onPress={() => navigation.navigate('StoryDetail')}
+        >
           <View style={styles.authorRow}>
             <View style={styles.avatarSpotlight}>
               <Ionicons name="person" size={22} color="#0058be" />
@@ -398,7 +410,7 @@ export default function CommunityScreen({ navigation }) {
               <Text style={styles.saveText}>Sungani (Save)</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </TouchableOpacity>
 
         {/* Footer */}
         <View style={styles.footer}>
@@ -478,7 +490,6 @@ const styles = StyleSheet.create({
   },
   scroll: { paddingBottom: 40 },
 
-  // Banner
   banner: {
     margin: 16,
     backgroundColor: '#e7eeff',
@@ -528,7 +539,6 @@ const styles = StyleSheet.create({
   },
   secondaryBtnText: { color: '#0058be', fontSize: 13, fontWeight: '700' },
 
-  // Privacy
   privacyBox: {
     flexDirection: 'row',
     gap: 10,
@@ -542,7 +552,6 @@ const styles = StyleSheet.create({
   privacyText: { fontSize: 12, color: '#6B7380', lineHeight: 17, marginTop: 2 },
   privacyLink: { color: '#0058be', fontWeight: '700', textDecorationLine: 'underline' },
 
-  // Filters
   filters: { paddingHorizontal: 16, paddingVertical: 8, gap: 8 },
   chip: {
     flexDirection: 'row',
@@ -558,7 +567,6 @@ const styles = StyleSheet.create({
   chipText: { fontSize: 12, fontWeight: '600', color: '#111c2d' },
   chipTextActive: { color: '#FFFFFF' },
 
-  // Card
   card: {
     backgroundColor: '#FFFFFF',
     borderRadius: 16,
@@ -664,7 +672,6 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 
-  // Audio
   audioRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -692,7 +699,6 @@ const styles = StyleSheet.create({
   waveform: { flexDirection: 'row', alignItems: 'center', gap: 3, height: 14 },
   waveBar: { width: 3, borderRadius: 2, backgroundColor: '#0058be' },
 
-  // Tags
   tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginBottom: 12 },
   tag: {
     backgroundColor: '#e7eeff',
@@ -702,7 +708,6 @@ const styles = StyleSheet.create({
   },
   tagText: { fontSize: 11, fontWeight: '600', color: '#0058be' },
 
-  // Actions
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -740,7 +745,6 @@ const styles = StyleSheet.create({
   },
   replyBtnText: { fontSize: 12, fontWeight: '600', color: '#0058be' },
 
-  // Reply box
   replyBox: {
     backgroundColor: '#f0f3ff',
     borderRadius: 12,
@@ -751,7 +755,6 @@ const styles = StyleSheet.create({
   replyAuthor: { fontSize: 12, fontWeight: '700', color: '#111c2d', flex: 1 },
   replyBody: { fontSize: 13, color: '#6B7380', lineHeight: 18 },
 
-  // Spotlight
   spotlightCard: { backgroundColor: '#dee8ff' },
   spotlightBadge: {
     flexDirection: 'row',
@@ -806,7 +809,6 @@ const styles = StyleSheet.create({
   },
   saveText: { fontSize: 12, fontWeight: '600', color: '#0058be' },
 
-  // Footer
   footer: {
     alignItems: 'center',
     paddingVertical: 24,

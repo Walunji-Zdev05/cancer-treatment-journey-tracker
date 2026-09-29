@@ -14,22 +14,20 @@ import MedicinesScreen from './src/screens/MedicinesScreen';
 import SupportScreen from './src/screens/SupportScreen';
 
 import CommunityScreen from './src/screens/CommunityScreen';
+import StoryDetailScreen from './src/screens/StoryDetailScreen';
+import ShareStoryScreen from './src/screens/ShareStoryScreen';
 
-// Inside the Tabs function, add this Tab.Screen (after Meds or wherever you prefer):
+
+
+
+
+
 
 
 
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-
-function MedsScreen() {
-  return (
-    <View style={styles.placeholder}>
-      <Text style={styles.placeholderText}>Mankhwala • Meds screen coming soon</Text>
-    </View>
-  );
-}
 
 
 function Tabs() {
@@ -94,6 +92,9 @@ export default function AppNavigator() {
         <Stack.Screen name="Tabs" component={Tabs} />
         <Stack.Screen name="Triage" component={TriageScreen} />
         <Stack.Screen name="MissedAppointment" component={MissedAppointmentScreen} />
+        <Stack.Screen name="StoryDetail" component={StoryDetailScreen} />
+        <Stack.Screen name="ShareStory" component={ShareStoryScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
