@@ -1,7 +1,7 @@
 
 
-```md
-# Tikondane Care — Mobile App
+
+# Tikondane Care Mobile Application
 
 Bilingual (Chichewa / English) React Native mobile app for cancer patients and caregivers in Malawi.
 
