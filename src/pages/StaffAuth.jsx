@@ -115,41 +115,15 @@ export default function StaffAuth({ initialTab }) {
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
 
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur text-xs font-semibold tracking-wide mb-6">
-                <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse" />
-                <span>MoH OpenMRS & DHIS2 Sync</span>
-              </div>
+              
               <h1 className="text-3xl font-extrabold tracking-tight leading-tight mb-3">
                 Oncology Navigation & Clinical Registry
               </h1>
               <p className="text-blue-100 text-sm leading-relaxed mb-6">
-                Empowering ward navigators, oncologists, and district health officers across Malawi with real-time patient tracking, automated transport aid, and USSD telemetry.
+                Empowering ward navigators, oncologists, and district health officers across Malawi with real-time patient tracking.
               </p>
 
-              {/* Metric Pills */}
-              <div className="space-y-3 pt-2">
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur border border-white/10">
-                  <span className="material-symbols-outlined text-secondary-container text-[24px]">verified_user</span>
-                  <div className="text-xs">
-                    <span className="font-bold block text-white">Encrypted Health Data</span>
-                    <span className="text-blue-100">National Cancer Control Programme compliance</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur border border-white/10">
-                  <span className="material-symbols-outlined text-yellow-300 text-[24px]">payments</span>
-                  <div className="text-xs">
-                    <span className="font-bold block text-white">Chikondi Minibus Aid</span>
-                    <span className="text-blue-100">Direct mobile money travel vouchers</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur border border-white/10">
-                  <span className="material-symbols-outlined text-teal-300 text-[24px]">cell_tower</span>
-                  <div className="text-xs">
-                    <span className="font-bold block text-white">Toll-Free Telemetry</span>
-                    <span className="text-blue-100">USSD *384*265# live gateway integration</span>
-                  </div>
-                </div>
-              </div>
+             
             </div>
 
             <div className="relative z-10 pt-8 border-t border-white/15 mt-6 text-xs text-blue-100 flex items-center justify-between">
@@ -258,8 +232,7 @@ export default function StaffAuth({ initialTab }) {
                         <option value="kch">Kamuzu Central Hospital (Lilongwe)</option>
                         <option value="qech">Queen Elizabeth Central (Blantyre)</option>
                         <option value="mzuzu">Mzuzu Central Hospital</option>
-                        <option value="salima">Salima District Hospital</option>
-                        <option value="dedza">Dedza District Health Office</option>
+                     
                       </select>
                     </div>
                     <div>
@@ -267,7 +240,6 @@ export default function StaffAuth({ initialTab }) {
                       <select className="w-full h-10 px-3 bg-surface-container-low rounded-xl border border-surface-container-high text-xs text-on-surface focus:outline-none focus:ring-2 focus:ring-primary font-medium">
                         <option value="ward3b">Ward 3B Day Chemotherapy Infusion</option>
                         <option value="triage">Oncology Nurse Triage & Task Board</option>
-                        <option value="transport">Community Transport & Voucher Desk</option>
                         <option value="pathology">Pathology & Biopsy Registry</option>
                       </select>
                     </div>
@@ -289,15 +261,7 @@ export default function StaffAuth({ initialTab }) {
                   </button>
                 </form>
 
-                {/* Smartcard note */}
-                <div className="p-3 rounded-xl bg-surface-container-low flex items-center gap-3 border border-surface-container-high">
-                  <span className="material-symbols-outlined text-secondary text-[20px]">security</span>
-                  <div className="text-xs text-on-surface-variant">
-                    <span className="font-semibold text-on-surface">Biometric or Smartcard Access?</span>{" "}
-                    Swipe your Ministry of Health identification card at the Ward 3B terminal reader for instant sign in.
-                  </div>
-                </div>
-
+                
                 <div className="pt-2 text-center border-t border-surface-container">
                   <span className="text-xs text-on-surface-variant font-medium">Need a new staff account? </span>
                   <button

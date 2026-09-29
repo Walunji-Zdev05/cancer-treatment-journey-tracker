@@ -1,14 +1,43 @@
+import {useNavigate} from "react-router-dom";
+
 const navItems = [
   { key: "triage", label: "Triage & Task Queue", icon: "checklist", badge: 14 },
   { key: "registry", label: "Patient Registry", icon: "groups" },
   { key: "schedule", label: "Appointment Schedule", icon: "calendar_today" },
   { key: "approvals", label: "Staff Approvals & Credentialing", icon: "badge", badge: 5 },
-  { key: "ussd", label: "USSD & SMS Logs", icon: "sms" },
-  { key: "transport", label: "Community Transport Fund", icon: "directions_bus" },
+  { key: "ussd", label: "Urgent Alerts", icon: "sms" },
   { key: "reports", label: "Reports & Analytics", icon: "monitoring" },
 ];
 
+
+
 export default function Sidebar({ active, onNavigate }) {
+   {/*const navigate = useNavigate();
+    const { toast, showToast } = useToast();
+  
+    const [authTab, setAuthTab] = useState(
+      initialTab || (location.pathname === "/offline" ? "online" : "online")
+    );
+   
+  
+    // Sync tab state with route path
+    useEffect(() => {
+      if (location.pathname === "/offline") {
+        setAuthTab("offline");
+      } else if (location.pathname === "/online") {
+        setAuthTab("online");
+      }
+    }, [location.pathname]);
+
+  const handleTabSwitch = (tab) => {
+    setAuthTab(tab);
+    if (tab === "online") {
+      navigate("offline");
+    } else {
+      navigate("/online");
+    }
+  };
+*/}
   return (
     <aside className="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between">
       <div className="flex flex-col">
@@ -22,22 +51,7 @@ export default function Sidebar({ active, onNavigate }) {
           </div>
         </div>
 
-        <div className="px-6 py-4">
-          <div className="p-3 bg-surface-container-low rounded">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse" />
-              <span className="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">
-                Active Shift
-              </span>
-            </div>
-            <p className="font-label-md text-label-md text-on-surface font-semibold truncate">
-              Sister Grace Phiri, RN
-            </p>
-            <p className="font-body-sm text-body-sm text-on-surface-variant truncate">
-              Kamuzu Central Unit • On Duty
-            </p>
-          </div>
-        </div>
+        
 
         <nav className="flex flex-col gap-1 px-4">
           {navItems.map((item) => {
@@ -68,12 +82,36 @@ export default function Sidebar({ active, onNavigate }) {
       </div>
 
       <div className="p-4 mx-4 mb-6 rounded bg-surface-container">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="material-symbols-outlined text-primary text-[20px]">support_agent</span>
-          <span className="font-label-sm text-label-sm text-primary font-bold">Urgent Triage Line</span>
-        </div>
-        <p className="font-body-sm text-body-sm text-on-surface-variant">National Oncology Support</p>
-        <p className="font-label-md text-label-md text-on-surface mt-1">+265 1 756 000</p>
+     
+            
+            {/* Auth Mode Switcher 
+            <div className="flex items-center justify-between border-b border-surface-container-high pb-4 mb-6">
+              <div className="flex gap-2 p-1 bg-surface-container-low rounded-full">
+                <button
+                  type="button"
+                  onClick={() => handleTabSwitch("online")}
+                  className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
+                    authTab === "online"
+                      ? "bg-primary text-on-primary shadow-sm"
+                      : "text-on-surface-variant hover:text-on-surface"
+                  }`}
+                >
+                  Online
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleTabSwitch("offline")}
+                  className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
+                    authTab === "offline"
+                      ? "bg-secondary text-on-secondary shadow-sm"
+                      : "text-on-surface-variant hover:text-on-surface"
+                  }`}
+                >
+                  Offline
+                </button>
+              </div>
+             </div>*/}
+ 
       </div>
     </aside>
   );

@@ -249,49 +249,7 @@ export default function StaffApprovals() {
                 </p>
               </div>
 
-              {/* Council Registry Heartbeats */}
-              <div className="flex flex-wrap items-center gap-3">
-                <div className="flex items-center gap-3 px-3.5 py-2 rounded-DEFAULT bg-surface-container-low">
-                  <div className="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
-                    <span className="material-symbols-outlined text-[18px]">domain_verification</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-label-sm text-label-sm text-on-surface font-bold">MCM Registry</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                    </div>
-                    <span className="font-body-sm text-body-sm text-on-surface-variant">Live (Synced 12m ago)</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 px-3.5 py-2 rounded-DEFAULT bg-surface-container-low">
-                  <div className="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
-                    <span className="material-symbols-outlined text-[18px]">medical_services</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-label-sm text-label-sm text-on-surface font-bold">NMCM Gateway</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                    </div>
-                    <span className="font-body-sm text-body-sm text-on-surface-variant">Active • 100% Match</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 px-3.5 py-2 rounded-DEFAULT bg-surface-container-low">
-                  <div className="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-sm">
-                    <span className="material-symbols-outlined text-[18px]">sync_alt</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-label-sm text-label-sm text-on-surface font-bold">iHRIS OpenMRS</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                    </div>
-                    <span className="font-body-sm text-body-sm text-on-surface-variant">DHIS2 Linked</span>
-                  </div>
-                </div>
               </div>
-            </div>
-
             {/* Operational Quick Controls Bar */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6">
               <div className="flex flex-wrap items-center gap-2">
@@ -750,22 +708,6 @@ export default function StaffApprovals() {
                           checked={selectedApplicant.permissions.chemoLog}
                           onChange={() => handlePermissionToggle("chemoLog")}
                           className="w-5 h-5 rounded accent-secondary cursor-pointer"
-                        />
-                      </label>
-
-                      <label className="flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
-                        <div className="flex items-start gap-3">
-                          <span className="material-symbols-outlined text-tertiary text-[20px] mt-0.5">directions_bus</span>
-                          <div className="flex flex-col">
-                            <span className="font-label-md text-label-md font-semibold text-on-surface">Minibus Transport Fund Authorization</span>
-                            <span className="font-body-sm text-body-sm text-on-surface-variant">Approve village patient travel vouchers (&le; MWK 50,000/day)</span>
-                          </div>
-                        </div>
-                        <input
-                          type="checkbox"
-                          checked={selectedApplicant.permissions.transport}
-                          onChange={() => handlePermissionToggle("transport")}
-                          className="w-5 h-5 rounded accent-primary cursor-pointer"
                         />
                       </label>
 

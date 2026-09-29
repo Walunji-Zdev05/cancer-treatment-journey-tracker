@@ -10,7 +10,7 @@ import ChemoPathway from "../components/dossier/ChemoPathway.jsx";
 import BloodCounts from "../components/dossier/BloodCounts.jsx";
 import MedicationRegimen from "../components/dossier/MedicationRegimen.jsx";
 import OmnichannelStream from "../components/dossier/OmnichannelStream.jsx";
-import TransportFundCard from "../components/dossier/TransportFundCard.jsx";
+//import TransportFundCard from "../components/dossier/TransportFundCard.jsx";
 import NavigatorNotes from "../components/dossier/NavigatorNotes.jsx";
 import CareTeam from "../components/dossier/CareTeam.jsx";
 import TransportModal from "../components/dossier/modals/TransportModal.jsx";
