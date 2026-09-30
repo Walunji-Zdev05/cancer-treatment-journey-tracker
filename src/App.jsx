@@ -6,6 +6,7 @@ import AppointmentSchedule from "./pages/AppointmentSchedule.jsx";
 import ReportsAnalytics from "./pages/ReportsAnalytics.jsx";
 import StaffApprovals from "./pages/StaffApprovals.jsx";
 import StaffAuth from "./pages/StaffAuth.jsx";
+import CommunityModeration from "./pages/CommunityModeration.jsx";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/schedule" element={<AppointmentSchedule />} />
         <Route path="/reports" element={<ReportsAnalytics />} />
         <Route path="/staff-approvals" element={<StaffApprovals />} />
+        <Route path="/community" element={<CommunityModeration />} />
         <Route path="/approvals" element={<StaffApprovals />} />
         <Route path="/login" element={<StaffAuth initialTab="signin" />} />
         <Route path="/register" element={<StaffAuth initialTab="signup" />} />
