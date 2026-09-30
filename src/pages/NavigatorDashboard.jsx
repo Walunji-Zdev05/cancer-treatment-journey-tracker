@@ -65,7 +65,6 @@ export default function NavigatorDashboard() {
           !q ||
           [a.name, a.patientId, a.phone, a.reason, a.note].some((v) => v.toLowerCase().includes(q))
       )
-      // Simple time order. No priority ranking: clinicians decide what is urgent.
       .sort(
         (a, b) =>
           DAY_ORDER[a.day] - DAY_ORDER[b.day] ||
@@ -110,7 +109,7 @@ export default function NavigatorDashboard() {
                   <span className="font-label-md text-label-md">Send Group Text Message</span>
                 </button>
                 <button
-                  onClick={() => showToast("Opening new patient registration form...", "person_add")}
+                  onClick={() => navigate("/registry")}
                   className="flex items-center gap-2 h-11 px-5 rounded-full bg-primary text-on-primary shadow-sm hover:bg-primary-container transition-all"
                 >
                   <span className="material-symbols-outlined text-[18px]">person_add</span>

@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
   { key: "triage", label: "Triage & Task Queue", icon: "checklist", badge: 2, path: "/" },
-  { key: "registry", label: "Patient Registry", icon: "groups", path: null },
+  { key: "registry", label: "Patient Registry", icon: "groups", path: "/registry" },
   { key: "schedule", label: "Appointment Schedule", icon: "calendar_today", path: "/schedule" },
   { key: "approvals", label: "Staff Approvals & Credentialing", icon: "badge", badge: 5, path: "/approvals" },
   { key: "ussd", label: "Urgent Alerts", icon: "sms", path: null },
